@@ -5,7 +5,7 @@ pipeline {
   environment {
     BRANCH   = 'main'
     REPO_URL = 'https://github.com/PraveenKuberABC/Amazon-Jenkins'
-    POM_PATH = 'Amazon/pom.xml'
+    POM_PATH = 'Amazon/Amazon-Core/pom.xml'
   }
 
   stages {
