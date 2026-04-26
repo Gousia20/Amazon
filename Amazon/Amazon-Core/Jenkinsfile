@@ -6,7 +6,7 @@ pipeline {
   environment {
     BRANCH   = 'main'
     REPO_URL = 'https://github.com/PraveenKuberABC/Amazon-Jenkins'
-    POM_PATH = 'Amazon/Amazon-Core/pom.xml'
+    
   }
 
   stages {
@@ -20,7 +20,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh "mvn clean install -f ${POM_PATH}"
+        sh 'mvn clean install'
       }
     }
   }
