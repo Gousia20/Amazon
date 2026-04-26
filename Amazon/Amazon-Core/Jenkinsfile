@@ -1,0 +1,37 @@
+pipeline {
+
+  agent any
+
+  environment {
+    BRANCH   = 'main'
+    REPO_URL = 'https://github.com/PraveenKuberABC/Amazon-Jenkins'
+    POM_PATH = 'Amazon/pom.xml'
+  }
+
+  stages {
+
+    stage('Clone') {
+      steps {
+        git branch: "${BRANCH}",
+        url: "${REPO_URL}"
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh "mvn clean install -f ${POM_PATH}"
+      }
+    }
+
+  }
+
+  post {
+    success {
+      echo "Build Success"
+    }
+    failure {
+      echo "Build Failed"
+    }
+  }
+
+}
