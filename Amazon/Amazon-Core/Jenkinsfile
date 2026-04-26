@@ -22,16 +22,5 @@ pipeline {
         sh "mvn clean install -f ${POM_PATH}"
       }
     }
-
   }
-
-  post {
-    success {
-      echo "Build Success"
-    }
-    failure {
-      echo "Build Failed"
-    }
-  }
-
 }
