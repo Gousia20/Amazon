@@ -1,12 +1,1 @@
-
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn clean install -f Amazon/pom.xml'
-            }
-        }
-    }
-}
+hi
