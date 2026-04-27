@@ -6,7 +6,7 @@ pipeline {
         REPO_URL = 'https://github.com/Gousia20/Amazon.git'
     }
     stages {
-        stage('Clone') {
+        stage('Clone') { 
             steps {
                 git branch: "${BRANCH}",
                     url: "${REPO_URL}"
