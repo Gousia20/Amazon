@@ -10,7 +10,7 @@ pipeline {
             steps {
                 git branch: "${BRANCH}",
                     url: "${REPO_URL}"
-            }
+            } 
         }
         stage('Build') {
             steps {
