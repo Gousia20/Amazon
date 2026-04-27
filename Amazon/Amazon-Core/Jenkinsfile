@@ -24,4 +24,14 @@ pipeline {
       }
     }
   }
+post{
+  success{
+    emailext subject: 'success' ,
+      to: 'gousia13batch@gmail.com'
+  }
+failure{
+  emailext subject: 'failed' ,
+    to: 'gousia13batch@gmail.com'
+}
+}
 }
