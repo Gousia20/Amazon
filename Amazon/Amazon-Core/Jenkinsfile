@@ -27,10 +27,12 @@ pipeline {
 post{
   success{
     emailext subject: 'success' ,
+      body: 'Build was successfull',
       to: 'gousia13batch@gmail.com'
   }
 failure{
   emailext subject: 'failed' ,
+    body: 'Build has failed!',
     to: 'gousia13batch@gmail.com'
 }
 }
