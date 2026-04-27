@@ -1,39 +1,33 @@
 
 pipeline {
-
-  agent any
-
-  environment {
-    BRANCH   = 'main'
-    REPO_URL = 'https://github.com/PraveenKuberABC/Amazon-Jenkins'
-    
-  }
-
-  stages {
-
-    stage('Clone') {
-      steps {
-        git branch: "${BRANCH}",
-        url: "${REPO_URL}"
-      }
+    agent any
+    environment {
+        BRANCH   = 'main'
+        REPO_URL = 'https://github.com/Gousia20/Amazon.git'
     }
-
-    stage('Build') {
-      steps {
-        sh 'mvn clean install'
-      }
+    stages {
+        stage('Clone') {
+            steps {
+                git branch: "${BRANCH}",
+                    url: "${REPO_URL}"
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
     }
-  }
-post{
-  success{
-    emailext subject: 'success' ,
-      body: 'Build was successfull',
-      to: 'gousia13batch@gmail.com'
-  }
-failure{
-  emailext subject: 'failed' ,
-    body: 'Build has failed!',
-    to: 'gousia13batch@gmail.com'
-}
-}
+    post {
+        success {
+            emailext subject: 'Build Success',
+                     body: 'Build passed successfully!',
+                     to: 'gousia13batch@gmail.com'
+        }
+        failure {
+            emailext subject: 'Build Failed',
+                     body: 'Build has failed!',
+                     to: 'gousia13batch@gmail.com'
+        }
+    }
 }
